@@ -2,6 +2,7 @@ package com.api_design_and_management.demo.service.impl;
 
 import com.api_design_and_management.demo.client.AiModelService;
 import com.api_design_and_management.demo.service.UploadImageService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -16,13 +17,14 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @Service
+@RequiredArgsConstructor
 public class UploadImageServiceImpl implements UploadImageService {
+
+    private final AiModelService aiModelService;
+    private final RestTemplate restTemplate;
     public String uploadImage(MultipartFile file) throws IOException {
 
-        RestTemplate restTemplate = new RestTemplate();
-
-        AiModelService fastApi = new AiModelService();
-        String fastApiUrl = fastApi.modelServiceUrl();
+        String fastApiUrl = aiModelService.modelServiceUrl();
 
         byte[] fileBytes = file.getBytes();
 
