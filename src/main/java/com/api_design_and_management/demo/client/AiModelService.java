@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class AiModelService {
 
     public String modelServiceUrl() {
-        return "http://localhost:8000/predict/";
+        return "https://ai-backend-1-fsf7.onrender.com/predict/";
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class AudioController {
 
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String fastApiUrl = "http://localhost:8000/audio/"; // غيّر الـ port لو مختلف
+    private final String fastApiUrl = "https://ai-backend-1-fsf7.onrender.com/audio/"; // غيّر الـ port لو مختلف
 
     @GetMapping("/audio/{filename}")
     public ResponseEntity<byte[]> getAudioFromFastApi(@PathVariable String filename) {
